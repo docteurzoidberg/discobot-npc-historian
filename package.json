@@ -1,0 +1,21 @@
+{
+  "name": "npc-historian",
+  "version": "1.0.0",
+  "description": "Discord bot to archive media from a discord server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DrZoid",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/rest": "^1.6.0",
+    "discord-api-types": "^0.37.37",
+    "discord.js": "^14.8.0",
+    "dotenv": "^16.0.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0"
+  }
+}
