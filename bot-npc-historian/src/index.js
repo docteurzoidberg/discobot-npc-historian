@@ -99,6 +99,7 @@ const client = new Client({
 //populate client with commands, events and everything needed by modules
 client.logger = logger;
 client.commands = new Collection();
+client.modals = new Collection();
 client.updated = updated;
 client.invisible = BOT_INVISIBLE === "true";
 client.openaikey = process.env.OPENAI_API_KEY || false;
@@ -133,6 +134,17 @@ for (const file of commandFiles) {
   // Set a new item in the Collection
   // With the key as the command name and the value as the exported module
   client.commands.set(command.data.name, command);
+}
+
+//load modal modules
+const modalFiles = fs
+  .readdirSync(basePath + "/modals")
+  .filter((file) => file.endsWith(".js"));
+for (const file of modalFiles) {
+  const modal = require(`${basePath}/modals/${file}`);
+  // Set a new item in the Collection
+  // With the key as the command name and the value as the exported module
+  client.modals.set(modal.customId.toLowerCase(), modal);
 }
 
 //handle process signals

@@ -4,18 +4,18 @@
   "description": "Discord bot to archive media from a discord server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "register": "node src/register.js | pino-pretty -t -l",
+    "start": "node src/index.js | pino-pretty -t -l",
+    "archive": "node src/scripts/archiveAllMessages.js"
   },
   "author": "DrZoid",
-  "license": "MIT",
+  "license": "DBAD",
   "dependencies": {
     "@discordjs/rest": "^1.6.0",
     "discord-api-types": "^0.37.37",
     "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
+    "node-fetch": "^2.6.9",
     "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.36.0"
   }
 }
